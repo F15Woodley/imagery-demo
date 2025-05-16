@@ -1,8 +1,3 @@
-%%[ ProductName: Distiller ]%%
-This PostScript file was created from an encrypted PDF file.
-Redistilling encrypted PDF is not permitted.
-%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%
-%%[ Warning: PostScript error. No PDF file produced. ] %%
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +15,13 @@ Redistilling encrypted PDF is not permitted.
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // Update this URL with your actual public COG URL
-    const cogUrl = 'https://oin-hotosm.s3.amazonaws.com/5ac1f21b14cbb1000c0633a0/0/5ac1f21b14cbb1000c0633a1.tif';
-
+    // Replace this with your actual public S3 COG URL
+    const cogUrl = 'https://your-bucket.s3.amazonaws.com/Tampa_5_COG.tif';
 
     const tileUrl = `https://titiler.xyz/cog/tiles/{z}/{x}/{y}.jpg?url=${encodeURIComponent(cogUrl)}`;
 
-    const map = L.map('map').setView([27.95, -82.46], 16); // Update center as needed
+    // Set to center of your imagery – Tampa coordinates shown here
+    const map = L.map('map').setView([27.95, -82.46], 16);
 
     L.tileLayer(tileUrl, {
       tileSize: 256,
