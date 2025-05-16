@@ -1,0 +1,37 @@
+%%[ ProductName: Distiller ]%%
+This PostScript file was created from an encrypted PDF file.
+Redistilling encrypted PDF is not permitted.
+%%[ Flushing: rest of job (to end-of-file) will be ignored ]%%
+%%[ Warning: PostScript error. No PDF file produced. ] %%
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Aerial Solutions – Imagery Demo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { margin: 0; }
+    #map { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Update this URL with your actual public COG URL
+    const cogUrl = 'https://your-bucket.s3.amazonaws.com/Tampa_5_COG.tif';
+
+    const tileUrl = `https://titiler.xyz/cog/tiles/{z}/{x}/{y}.jpg?url=${encodeURIComponent(cogUrl)}`;
+
+    const map = L.map('map').setView([27.95, -82.46], 16); // Update center as needed
+
+    L.tileLayer(tileUrl, {
+      tileSize: 256,
+      maxZoom: 22,
+      attribution: 'Imagery © Digital Aerial Solutions, LLC'
+    }).addTo(map);
+  </script>
+</body>
+</html>
